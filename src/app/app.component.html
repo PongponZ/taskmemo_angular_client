@@ -1,0 +1,47 @@
+<div style="width: 90%;margin: auto;margin-top: 2rem;">
+    <mat-toolbar color='primary' class="create-tab">
+      <span>Task Note</span>
+      <button mat-stroked-button (click)="save()">Save</button>
+    </mat-toolbar>
+
+      <form>
+        <mat-form-field class="example-full-width" style="margin-top: 0.5rem;">
+          <mat-label><span>write here...</span></mat-label>
+          <textarea matInput class="height30" rows="10" [(ngModel)]="textArea" [ngModelOptions]="{standalone: true}"></textarea>
+        </mat-form-field>
+      </form>
+    
+    
+</div>
+
+<br>
+<div style="width: 90%;margin: auto;">
+  <mat-toolbar class="create-tab" style="background-color: rgb(104, 97, 97); color:aliceblue">
+    <span>History</span>
+    <button mat-stroked-button >Export</button>
+  </mat-toolbar>
+  <div>
+    
+    
+    <mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="text">
+        <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.text}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
+    </mat-table>
+    
+  </div>
+  
+</div>
+
+
+
+
